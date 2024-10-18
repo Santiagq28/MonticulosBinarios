@@ -111,7 +111,7 @@ public class View extends javax.swing.JFrame {
 
     private void buscarNodoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarNodoActionPerformed
         Nodo nodo = new Nodo(0,0);
-        nodo = mb.encontrarNodo(Integer.parseInt(JOptionPane.showInputDialog("Ingrese el valor del nodo:")));
+        nodo = mb.encontrarNodo(Integer.parseInt(JOptionPane.showInputDialog("Ingrese el indice del nodo:")));
         JOptionPane.showMessageDialog(null,"El valor del nodo es "+nodo.valor);
     }//GEN-LAST:event_buscarNodoActionPerformed
 

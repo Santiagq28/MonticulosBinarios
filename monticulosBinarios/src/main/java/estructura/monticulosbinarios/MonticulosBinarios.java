@@ -13,6 +13,7 @@ public class MonticulosBinarios {
     private Nodo raiz;
     private int size;
     
+    String line = "";
     
     public MonticulosBinarios() {
         raiz = null;
@@ -131,16 +132,19 @@ public class MonticulosBinarios {
 
     // Imprimir el montículo en orden
     public void imprimirHeap(Nodo nodo) {
+        
         if (nodo != null) {
             imprimirHeap(nodo.izquierdo);
-            JOptionPane.showMessageDialog(null,nodo.valor + " ");
+            line += nodo.valor + " ";
             imprimirHeap(nodo.derecho);
         }
+        
     }
 
     public void imprimir() {
         imprimirHeap(raiz);
-        JOptionPane.showMessageDialog(null,"");
+        JOptionPane.showMessageDialog(null,line);
+        line = "";
     }
 
 }
