@@ -90,7 +90,7 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_agregarNodoActionPerformed
 
     private void eliminarMaximoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminarMaximoActionPerformed
-        JOptionPane.showMessageDialog(null,"Eliminado valor maximo: "+mh.extraerMin());
+        JOptionPane.showMessageDialog(null,"Eliminado valor minimo: "+mh.extraerMin());
     }//GEN-LAST:event_eliminarMaximoActionPerformed
 
     private void imprimirMonticuloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_imprimirMonticuloActionPerformed
