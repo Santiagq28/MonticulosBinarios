@@ -11,7 +11,7 @@ import javax.swing.JOptionPane;
  * @author USER
  */
 public class Menu extends javax.swing.JFrame {
-    MaxHeap mp = new MaxHeap();
+    MinHeap mh = new MinHeap();
     /**
      * Creates new form Menu
      */
@@ -86,15 +86,15 @@ public class Menu extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void agregarNodoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agregarNodoActionPerformed
-        mp.insertarNodo(Integer.parseInt(JOptionPane.showInputDialog(null,"Ingrese el valor: ")));
+        mh.insertarNodo(Integer.parseInt(JOptionPane.showInputDialog(null,"Ingrese el valor: ")));
     }//GEN-LAST:event_agregarNodoActionPerformed
 
     private void eliminarMaximoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminarMaximoActionPerformed
-        JOptionPane.showMessageDialog(null,"Eliminado valor maximo: "+mp.extraerMax());
+        JOptionPane.showMessageDialog(null,"Eliminado valor maximo: "+mh.extraerMin());
     }//GEN-LAST:event_eliminarMaximoActionPerformed
 
     private void imprimirMonticuloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_imprimirMonticuloActionPerformed
-        JOptionPane.showMessageDialog(null,mp.printHeap());
+        JOptionPane.showMessageDialog(null,mh.printHeap());
     }//GEN-LAST:event_imprimirMonticuloActionPerformed
 
     /**
