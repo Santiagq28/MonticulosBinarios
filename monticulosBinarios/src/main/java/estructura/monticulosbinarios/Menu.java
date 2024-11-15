@@ -10,13 +10,12 @@ import javax.swing.JOptionPane;
  *
  * @author USER
  */
-public class View extends javax.swing.JFrame {
-    
-    MonticulosBinarios mb = new MonticulosBinarios();
+public class Menu extends javax.swing.JFrame {
+    MaxHeap mp = new MaxHeap();
     /**
-     * Creates new form View
+     * Creates new form Menu
      */
-    public View() {
+    public Menu() {
         initComponents();
     }
 
@@ -29,17 +28,16 @@ public class View extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        insertarNodo = new javax.swing.JButton();
+        agregarNodo = new javax.swing.JButton();
         eliminarMaximo = new javax.swing.JButton();
-        buscarNodo = new javax.swing.JButton();
         imprimirMonticulo = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        insertarNodo.setText("Insertar Nodo");
-        insertarNodo.addActionListener(new java.awt.event.ActionListener() {
+        agregarNodo.setText("Agregar Nodo");
+        agregarNodo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                insertarNodoActionPerformed(evt);
+                agregarNodoActionPerformed(evt);
             }
         });
 
@@ -47,13 +45,6 @@ public class View extends javax.swing.JFrame {
         eliminarMaximo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 eliminarMaximoActionPerformed(evt);
-            }
-        });
-
-        buscarNodo.setText("Buscar Nodo");
-        buscarNodo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buscarNodoActionPerformed(evt);
             }
         });
 
@@ -68,55 +59,42 @@ public class View extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap(138, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(140, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(insertarNodo)
-                        .addGap(152, 152, 152))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(eliminarMaximo)
-                        .addGap(142, 142, 142))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(imprimirMonticulo)
-                            .addComponent(buscarNodo))
-                        .addGap(158, 158, 158))))
+                    .addComponent(eliminarMaximo)
+                    .addComponent(agregarNodo))
+                .addGap(140, 140, 140))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(160, 160, 160)
+                .addComponent(imprimirMonticulo)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(58, 58, 58)
-                .addComponent(insertarNodo)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(36, 36, 36)
+                .addComponent(agregarNodo)
+                .addGap(18, 18, 18)
                 .addComponent(eliminarMaximo)
-                .addGap(18, 18, 18)
-                .addComponent(buscarNodo)
-                .addGap(18, 18, 18)
+                .addGap(26, 26, 26)
                 .addComponent(imprimirMonticulo)
-                .addContainerGap(102, Short.MAX_VALUE))
+                .addContainerGap(151, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void insertarNodoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_insertarNodoActionPerformed
-        mb.insertar(Integer.parseInt(JOptionPane.showInputDialog("Ingrese el valor del nodo:")));
-    }//GEN-LAST:event_insertarNodoActionPerformed
+    private void agregarNodoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agregarNodoActionPerformed
+        mp.insertarNodo(Integer.parseInt(JOptionPane.showInputDialog(null,"Ingrese el valor: ")));
+    }//GEN-LAST:event_agregarNodoActionPerformed
 
     private void eliminarMaximoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminarMaximoActionPerformed
-        mb.eliminarMaximo();
-        JOptionPane.showMessageDialog(null,"Máximo eliminado");
+        JOptionPane.showMessageDialog(null,"Eliminado valor maximo: "+mp.extraerMax());
     }//GEN-LAST:event_eliminarMaximoActionPerformed
 
-    private void buscarNodoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarNodoActionPerformed
-        Nodo nodo = new Nodo(0,0);
-        nodo = mb.encontrarNodo(Integer.parseInt(JOptionPane.showInputDialog("Ingrese el indice del nodo:")));
-        JOptionPane.showMessageDialog(null,"El valor del nodo es "+nodo.valor);
-    }//GEN-LAST:event_buscarNodoActionPerformed
-
     private void imprimirMonticuloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_imprimirMonticuloActionPerformed
-        mb.imprimir();
+        JOptionPane.showMessageDialog(null,mp.printHeap());
     }//GEN-LAST:event_imprimirMonticuloActionPerformed
 
     /**
@@ -136,28 +114,27 @@ public class View extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(View.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Menu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(View.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Menu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(View.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Menu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(View.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Menu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new View().setVisible(true);
+                new Menu().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton buscarNodo;
+    private javax.swing.JButton agregarNodo;
     private javax.swing.JButton eliminarMaximo;
     private javax.swing.JButton imprimirMonticulo;
-    private javax.swing.JButton insertarNodo;
     // End of variables declaration//GEN-END:variables
 }
