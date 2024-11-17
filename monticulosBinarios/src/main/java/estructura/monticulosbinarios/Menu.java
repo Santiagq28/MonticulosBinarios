@@ -31,10 +31,18 @@ public class Menu extends javax.swing.JFrame {
         agregarNodo = new javax.swing.JButton();
         eliminarMaximo = new javax.swing.JButton();
         imprimirMonticulo = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        mostrarMinimo = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         agregarNodo.setText("Agregar Nodo");
+        agregarNodo.setBorder(new javax.swing.border.MatteBorder(null));
+        agregarNodo.setFocusable(false);
         agregarNodo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 agregarNodoActionPerformed(evt);
@@ -42,6 +50,8 @@ public class Menu extends javax.swing.JFrame {
         });
 
         eliminarMaximo.setText("Eliminar Minimo");
+        eliminarMaximo.setBorder(new javax.swing.border.MatteBorder(null));
+        eliminarMaximo.setFocusable(false);
         eliminarMaximo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 eliminarMaximoActionPerformed(evt);
@@ -49,9 +59,31 @@ public class Menu extends javax.swing.JFrame {
         });
 
         imprimirMonticulo.setText("Imprimir");
+        imprimirMonticulo.setBorder(new javax.swing.border.MatteBorder(null));
+        imprimirMonticulo.setFocusable(false);
         imprimirMonticulo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 imprimirMonticuloActionPerformed(evt);
+            }
+        });
+
+        jLabel1.setText("Insertar un nuevo Nodo al montículo:");
+
+        jLabel2.setText("Extraer el valor Minimo o Raíz del montículo:");
+
+        jLabel3.setText("Imprimir la estructura del montículo:");
+
+        jLabel4.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
+        jLabel4.setText("Montículos de Árboles Binarios");
+
+        jLabel5.setText("Imprimir Mínimo o Raíz del montículo:");
+
+        mostrarMinimo.setText("Mostrar Mínimo");
+        mostrarMinimo.setBorder(new javax.swing.border.MatteBorder(null));
+        mostrarMinimo.setFocusable(false);
+        mostrarMinimo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mostrarMinimoActionPerformed(evt);
             }
         });
 
@@ -59,27 +91,59 @@ public class Menu extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(142, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(eliminarMaximo)
-                    .addComponent(agregarNodo))
-                .addGap(140, 140, 140))
             .addGroup(layout.createSequentialGroup()
-                .addGap(160, 160, 160)
-                .addComponent(imprimirMonticulo)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(67, 67, 67)
+                        .addComponent(jLabel4))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(31, 31, 31)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel5)
+                            .addComponent(jLabel1))
+                        .addGap(32, 32, 32)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(agregarNodo, javax.swing.GroupLayout.DEFAULT_SIZE, 97, Short.MAX_VALUE)
+                            .addComponent(mostrarMinimo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(36, 36, 36)
+                                .addComponent(jLabel3)
+                                .addGap(32, 32, 32)
+                                .addComponent(imprimirMonticulo, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(eliminarMaximo, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap(36, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(36, 36, 36)
-                .addComponent(agregarNodo)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(25, 25, 25)
+                .addComponent(jLabel4)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(26, 26, 26)
+                        .addComponent(jLabel1))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(agregarNodo, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(17, 17, 17)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel5)
+                    .addComponent(mostrarMinimo, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(13, 13, 13)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(eliminarMaximo, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(eliminarMaximo)
-                .addGap(26, 26, 26)
-                .addComponent(imprimirMonticulo)
-                .addContainerGap(151, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(imprimirMonticulo, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(74, Short.MAX_VALUE))
         );
 
         pack();
@@ -96,6 +160,10 @@ public class Menu extends javax.swing.JFrame {
     private void imprimirMonticuloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_imprimirMonticuloActionPerformed
         JOptionPane.showMessageDialog(null,mh.obtenerHeapComoTexto());
     }//GEN-LAST:event_imprimirMonticuloActionPerformed
+
+    private void mostrarMinimoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mostrarMinimoActionPerformed
+        JOptionPane.showMessageDialog(null,"Valor mínimo o raíz del montículo: "+mh.obtenerMin());
+    }//GEN-LAST:event_mostrarMinimoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -136,5 +204,11 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JButton agregarNodo;
     private javax.swing.JButton eliminarMaximo;
     private javax.swing.JButton imprimirMonticulo;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JButton mostrarMinimo;
     // End of variables declaration//GEN-END:variables
 }

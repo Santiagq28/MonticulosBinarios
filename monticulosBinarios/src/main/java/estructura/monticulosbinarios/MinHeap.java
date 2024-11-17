@@ -2,6 +2,7 @@ package estructura.monticulosbinarios;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.LinkedList;
+import javax.swing.JOptionPane;
 
 public class MinHeap {
     private Nodo raiz;
@@ -24,38 +25,35 @@ public class MinHeap {
     }
 
     private void insertarAlFinal(Nodo nuevoNodo) {
-    if (raiz == null) {
-        raiz = nuevoNodo;
-        return;
-    }
-
-    // Usamos una lista para encontrar el último nodo de manera eficiente
-    // Esto se podría mejorar usando una cola o lista de nodos
-
-    List<Nodo> cola = new LinkedList<>();
-    cola.add(raiz);
-
-    Nodo nodoActual = null;
-    while (!cola.isEmpty()) {
-        nodoActual = cola.remove(0);
-
-        if (nodoActual.izquierdo == null) {
-            nodoActual.izquierdo = nuevoNodo;
-            nuevoNodo.padre = nodoActual;
-            break;
-        } else {
-            cola.add(nodoActual.izquierdo);
+        if (raiz == null) {
+            raiz = nuevoNodo;
+            return;
         }
 
-        if (nodoActual.derecho == null) {
-            nodoActual.derecho = nuevoNodo;
-            nuevoNodo.padre = nodoActual;
-            break;
-        } else {
-            cola.add(nodoActual.derecho);
+        List<Nodo> cola = new LinkedList<>();
+        cola.add(raiz);
+
+        Nodo nodoActual = null;
+        while (!cola.isEmpty()) {
+            nodoActual = cola.remove(0);
+
+            if (nodoActual.izquierdo == null) {
+                nodoActual.izquierdo = nuevoNodo;
+                nuevoNodo.padre = nodoActual;
+                break;
+            } else {
+                cola.add(nodoActual.izquierdo);
+            }
+
+            if (nodoActual.derecho == null) {
+                nodoActual.derecho = nuevoNodo;
+                nuevoNodo.padre = nodoActual;
+                break;
+            } else {
+                cola.add(nodoActual.derecho);
+            }
         }
     }
-}
 
     private void heapifyUp(Nodo nodo) {
         while (nodo.padre != null && nodo.padre.valor > nodo.valor) {
@@ -125,8 +123,6 @@ public class MinHeap {
                 padreDelUltimo = nodoActual;
             }
         }
-
-        // Si el nodo a eliminar es hijo izquierdo o derecho
         if (padreDelUltimo != null) {
             if (padreDelUltimo.derecho != null) {
                 padreDelUltimo.derecho = null;
@@ -134,7 +130,6 @@ public class MinHeap {
                 padreDelUltimo.izquierdo = null;
             }
         } else {
-            // Si no hay padre, significa que solo queda la raíz
             raiz = null;
         }
     }
@@ -167,20 +162,20 @@ public class MinHeap {
     public int obtenerMin() {
         if (raiz != null) {
             return raiz.valor;
+        }else{
+            JOptionPane.showMessageDialog(null,"ERROR, montículo vacío");
+            return -1;
         }
-        throw new IllegalStateException("El montículo está vacío");
     }
 
     public boolean estaVacio() {
         return raiz == null;
     }
 
-    // Devuelve el montículo en forma de texto como una sola cadena
     public String obtenerHeapComoTexto() {
         ArrayList<String> resultado = new ArrayList<>();
         generarTextoNodo(raiz, "", true, resultado);
 
-        // Unir todas las líneas en una sola cadena
         String textoFinal = "";
         for (String linea : resultado) {
             textoFinal += linea + "\n";
@@ -188,7 +183,6 @@ public class MinHeap {
         return textoFinal;
     }
 
-    // Método auxiliar para construir el texto del montículo
     private void generarTextoNodo(Nodo nodo, String prefix, boolean isLeft, ArrayList<String> resultado) {
         if (nodo != null) {
             // Agregar la línea actual al resultado
