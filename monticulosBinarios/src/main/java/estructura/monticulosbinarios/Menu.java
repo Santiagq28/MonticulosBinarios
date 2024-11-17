@@ -150,7 +150,7 @@ public class Menu extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void agregarNodoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agregarNodoActionPerformed
-        mh.insertar(Integer.parseInt(JOptionPane.showInputDialog(null,"Ingrese el valor: ")));
+        mh.insertar(JOptionPane.showInputDialog(null,"Ingrese el nombre: "),Integer.parseInt(JOptionPane.showInputDialog(null,"Ingrese el valor: ")));
     }//GEN-LAST:event_agregarNodoActionPerformed
 
     private void eliminarMaximoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminarMaximoActionPerformed

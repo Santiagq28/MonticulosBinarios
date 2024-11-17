@@ -13,8 +13,8 @@ public class MinHeap {
         this.size = 0;
     }
 
-    public void insertar(int valor) {
-        Nodo nuevoNodo = new Nodo(valor);
+    public void insertar(String nombre,int valor) {
+        Nodo nuevoNodo = new Nodo(nombre,valor);
         if (raiz == null) {
             raiz = nuevoNodo;
         } else {
@@ -57,21 +57,19 @@ public class MinHeap {
 
     private void heapifyUp(Nodo nodo) {
         while (nodo.padre != null && nodo.padre.valor > nodo.valor) {
-            int temp = nodo.padre.valor;
-            nodo.padre.valor = nodo.valor;
-            nodo.valor = temp;
+            intercambiarNodos(nodo, nodo.padre);
             nodo = nodo.padre;
         }
     }
 
-    public int extraerMin() {
+    public String extraerMin() {
         if (raiz == null) {
             throw new IllegalStateException("El montículo está vacío");
         }
-        int valorMinimo = raiz.valor;
+        String valorMinimo = raiz.nombre+"("+ raiz.valor+")";
 
         Nodo ultimoNodo = obtenerUltimoNodo();
-        raiz.valor = ultimoNodo.valor;
+        intercambiarNodos(raiz,ultimoNodo);
         eliminarUltimoNodo();
 
         heapifyDown(raiz);
@@ -151,13 +149,21 @@ public class MinHeap {
         }
 
         if (menorHijo != nodo) {
-            int temp = nodo.valor;
-            nodo.valor = menorHijo.valor;
-            menorHijo.valor = temp;
-            
+            intercambiarNodos(nodo, menorHijo);
             heapifyDown(menorHijo);
         }
     }
+    
+    private void intercambiarNodos(Nodo nodo1, Nodo nodo2) {
+        int tempValor = nodo1.valor;
+        nodo1.valor = nodo2.valor;
+        nodo2.valor = tempValor;
+
+        String tempNombre = nodo1.nombre;
+        nodo1.nombre = nodo2.nombre;
+        nodo2.nombre = tempNombre;
+    }
+
 
     public int obtenerMin() {
         if (raiz != null) {
@@ -186,7 +192,7 @@ public class MinHeap {
     private void generarTextoNodo(Nodo nodo, String prefix, boolean isLeft, ArrayList<String> resultado) {
         if (nodo != null) {
             // Agregar la línea actual al resultado
-            resultado.add(prefix + (isLeft ? "├── " : "└── ") + nodo.valor);
+            resultado.add(prefix + (isLeft ? "├── " : "└── ") +nodo.nombre+"("+ nodo.valor+")");
 
             // Generar texto para los nodos izquierdo y derecho
             generarTextoNodo(nodo.izquierdo, prefix + (isLeft ? "│   " : "    "), true, resultado);
