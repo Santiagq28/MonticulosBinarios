@@ -2,13 +2,12 @@ package estructura.monticulosbinarios;
 
 public class Nodo {
     int valor;
+    Nodo izquierdo, derecho, padre;
 
     public Nodo(int valor) {
         this.valor = valor;
-    }
-
-    @Override
-    public String toString() {
-        return String.valueOf(valor);
+        this.izquierdo = null;
+        this.derecho = null;
+        this.padre = null;
     }
 }

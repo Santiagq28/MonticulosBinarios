@@ -41,7 +41,7 @@ public class Menu extends javax.swing.JFrame {
             }
         });
 
-        eliminarMaximo.setText("Eliminar Máximo");
+        eliminarMaximo.setText("Eliminar Minimo");
         eliminarMaximo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 eliminarMaximoActionPerformed(evt);
@@ -60,7 +60,7 @@ public class Menu extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(140, Short.MAX_VALUE)
+                .addContainerGap(142, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(eliminarMaximo)
                     .addComponent(agregarNodo))
@@ -86,7 +86,7 @@ public class Menu extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void agregarNodoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agregarNodoActionPerformed
-        mh.insertarNodo(Integer.parseInt(JOptionPane.showInputDialog(null,"Ingrese el valor: ")));
+        mh.insertar(Integer.parseInt(JOptionPane.showInputDialog(null,"Ingrese el valor: ")));
     }//GEN-LAST:event_agregarNodoActionPerformed
 
     private void eliminarMaximoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminarMaximoActionPerformed
@@ -94,7 +94,7 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_eliminarMaximoActionPerformed
 
     private void imprimirMonticuloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_imprimirMonticuloActionPerformed
-        JOptionPane.showMessageDialog(null,mh.printHeap());
+        JOptionPane.showMessageDialog(null,mh.obtenerHeapComoTexto());
     }//GEN-LAST:event_imprimirMonticuloActionPerformed
 
     /**

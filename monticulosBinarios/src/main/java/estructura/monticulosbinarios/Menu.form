@@ -24,7 +24,7 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="1" attributes="0">
-              <EmptySpace pref="140" max="32767" attributes="0"/>
+              <EmptySpace pref="142" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="eliminarMaximo" min="-2" max="-2" attributes="0"/>
                   <Component id="agregarNodo" min="-2" max="-2" attributes="0"/>
@@ -63,7 +63,7 @@
     </Component>
     <Component class="javax.swing.JButton" name="eliminarMaximo">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Eliminar M&#xe1;ximo"/>
+        <Property name="text" type="java.lang.String" value="Eliminar Minimo"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="eliminarMaximoActionPerformed"/>
